@@ -1,0 +1,13 @@
+#home {
+    background-image: url(../img/home-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+#home>h1 {
+    padding: 10vh;
+    text-transform: uppercase;
+}
