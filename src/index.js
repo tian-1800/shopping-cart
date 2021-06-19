@@ -6,6 +6,7 @@ import './index.css';
 import "./style/home.css";
 import "./style/shop.css";
 import "./style/category-card.css";
+import "./style/display-plant.css";
 
 ReactDOM.render(
   <React.StrictMode>

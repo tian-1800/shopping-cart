@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import PlantCard from "./plant-card";
+import items from "./data/items";
 
-const Display = ({ match }) => {
-  const [name, setName] = useState([]);
+const DisplayCategory = ({ match }) => {
+  const [dataToDisplay, setDataToDisplay] = useState([]);
   useEffect(() => {
-    setName(match.params.id);
-
+    const array = items.find((el) => el.category === match.params.id);
+    setDataToDisplay(array.variant);
+    // console.log(match.params.id);
   }, []);
-  return <div>{name}</div>;
+
+  const jsxRender = dataToDisplay.map((variant) => (
+    <PlantCard item={variant} link={match.params.id}/>
+  ));
+
+  return (
+      <div>{jsxRender}</div>
+  );
 };
 
-export default Display;
+export default DisplayCategory;
