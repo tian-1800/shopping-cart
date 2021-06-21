@@ -1,22 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function CartInput() {
-    const handleBlur = () => {
-
-    }
-    const handleSubmit = () => {
-        
-    }
+export default function CartInput(props) {
+  const { submit, qty } = props;
+  const [value, setValue] = useState(qty);
+  const handleIncrement = () => {
+    setValue(value + 1);
+  };
+  const handleDecrement = () => {
+    setValue(value - 1);
+  };
+  const handleChange = (e) => {
+    setValue(parseInt(e.target.value, 10));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submit(value);
+  };
   return (
-    <div className="cart-input">
+    <div id="cart-input">
       <p>Quantity:</p>
       <form id="quantity-form" onSubmit={handleSubmit}>
         <div>
-          <button type="button" className="inc-dec-item" name="decrement">
+          <button
+            type="button"
+            id="dec-button"
+            name="decrement"
+            onClick={handleDecrement}
+          >
             &#8722;
           </button>
-          <input type="number" defaultValue="0" name="quantity" onBlur={handleBlur}/>
-          <button type="button" className="inc-dec-item" name="increment">
+          <input
+            type="number"
+            value={value}
+            name="quantity"
+            onChange={handleChange}
+            required
+          />
+          <button
+            type="button"
+            className="inc-button"
+            name="increment"
+            onClick={handleIncrement}
+          >
             &#43;
           </button>
         </div>

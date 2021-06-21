@@ -7,6 +7,8 @@ import "./style/home.css";
 import "./style/shop.css";
 import "./style/category-card.css";
 import "./style/display-plant.css";
+import "./style/sticky-cart.css";
+import "./style/cart-input.css";
 
 ReactDOM.render(
   <React.StrictMode>
