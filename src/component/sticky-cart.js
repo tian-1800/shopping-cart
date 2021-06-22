@@ -5,12 +5,12 @@ export default function StickyCart(props) {
   const { cart } = props;
   const [cartExpanded, setCardExpanded] = useState(false);
   const renderedCart = cart.map((item) => {
-    const { name, price, quantity, category } = item;
-    if (quantity === 0) return null;
+    const { title, price, quantity } = item;
+    if (!quantity > 0) return null;
     return (
-      <div key={name}>
+      <div key={title}>
         <p>
-          {name} {category} quantity: {quantity} @{price}{" "}
+          {title} quantity: {quantity} @{price}{" "}
         </p>
       </div>
     );

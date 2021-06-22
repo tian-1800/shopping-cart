@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function useDataFromAPI() {
   const [items, setItems] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
   const fetchData = () => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => {
@@ -10,11 +11,14 @@ export default function useDataFromAPI() {
         }
         return response.json();
       })
-      .then((json) => setItems(json));
+      .then((response) => {
+        setItems(response);
+        setIsLoaded(true);
+      });
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
-  return [items, setItems];
+  }, [isLoaded]);
+  return [items, isLoaded];
 }

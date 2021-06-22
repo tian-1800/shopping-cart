@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import CartInput from "./cart-input";
-import items from "./data/items";
 
 export default function Item(props) {
   const [itemToDisplay, setItemToDisplay] = useState([]);
   const { cartState } = props;
   const { shoppingCart, setShoppingCart } = cartState;
-  const match = useRouteMatch("/shop/:id/:variant");
+  const match = useRouteMatch("/shop/:item/");
 
   useEffect(() => {
-    const array = items.find((el) => el.category === match.params.id);
-    const item = array.variant.find((el) => el.name === match.params.variant);
-    if (item.description === "") item.description = "Some random description";
-    item.category = match.params.id;
+    const item = shoppingCart.find(
+      (element) => element.title === match.params.item
+    );
     setItemToDisplay(item);
-  }, []);
+  }, [shoppingCart]);
 
-  const index = [...shoppingCart].findIndex((el) => el.name === match.params.variant);
+  console.log("item to display ",itemToDisplay);
   const addToCart = (amount) => {
+    const index = shoppingCart.findIndex(
+      (el) => el.title === match.params.item
+    );
     if (index !== -1) {
       const tempArr = [...shoppingCart];
       tempArr[index].quantity = amount;
@@ -29,7 +30,7 @@ export default function Item(props) {
     <div className="item-container">
       <img
         className="item-img"
-        src={itemToDisplay.img}
+        src={itemToDisplay.image}
         alt={itemToDisplay.name}
       />
       <div className="item-detail">
@@ -37,7 +38,7 @@ export default function Item(props) {
           {itemToDisplay.name} {itemToDisplay.id}
         </h3>
         <p>Description: {itemToDisplay.description}</p>
-        <CartInput submit={addToCart} qty={shoppingCart[index].quantity} />
+        <CartInput submit={addToCart} qty={itemToDisplay.quantity} />
       </div>
     </div>
   );

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function CartInput(props) {
   const { submit, qty } = props;
-  const [value, setValue] = useState(qty);
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    setValue(qty||0);
+  }, [qty]);
   const handleIncrement = () => {
     setValue(value + 1);
   };

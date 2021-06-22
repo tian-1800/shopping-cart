@@ -6,30 +6,21 @@ import Home from "./component/home";
 import StickyCart from "./component/sticky-cart";
 import Item from "./component/item";
 import HeaderShop from "./component/header-shop";
-import useDataFromAPI from "./component/data/item";
+import useDataFromAPI from "./component/data/fetch-item";
 
 function App() {
-  const [items] = useDataFromAPI();
-  const useStateOnSesssionStorage = (storageKey) => {
-    const initCart = () => {
-      const cart = [];
-      items.forEach((item) => {
-        const element = item;
-        element.quantity = 0;
-        cart.push(element);
-      });
-      return cart;
-    };
-    const data = JSON.parse(sessionStorage.getItem(storageKey));
-    const [value, setValue] = useState(data || initCart());
-    useEffect(() => {
-      sessionStorage.setItem(storageKey, JSON.stringify(value));
-    }, [value]);
-    return [value, setValue];
-  };
-  const [shoppingCart, setShoppingCart] = useStateOnSesssionStorage(
-    "cartStateInSessionStorage"
-  );
+  const [items, isLoaded] = useDataFromAPI();
+  const [shoppingCart, setShoppingCart] = useState([]);
+  useEffect(() => {
+    if (isLoaded) {
+      const initializedItems=items.map(item => {
+        const copiedItem = item;
+        copiedItem.quantity = 0;
+        return copiedItem;
+      })
+      setShoppingCart(initializedItems);
+    }
+  }, [isLoaded]);
 
   return (
     <BrowserRouter>
@@ -43,10 +34,10 @@ function App() {
         </Route>
 
         <Route exact path="/shop">
-          <Shop cart={shoppingCart}/>
+          <Shop cart={shoppingCart} />
         </Route>
 
-        <Route exact path="/shop/:id/">
+        <Route exact path="/shop/:item/">
           <Item cartState={{ shoppingCart, setShoppingCart }} />
         </Route>
       </Switch>
