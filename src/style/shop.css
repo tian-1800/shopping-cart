@@ -3,3 +3,14 @@
     justify-content: center;
     align-items: center;
 }
+
+#header-shop {
+    height: 100px;
+    background-color: #111;
+    text-align: center;
+    line-height: 100px;
+}
+#header-shop h3 {
+    font-size: 36px;
+    font-weight: 400;
+}

@@ -3,7 +3,7 @@ import { useRouteMatch } from "react-router-dom";
 import CartInput from "./cart-input";
 import items from "./data/items";
 
-export default function DisplayPlant(props) {
+export default function Item(props) {
   const [itemToDisplay, setItemToDisplay] = useState([]);
   const { cartState } = props;
   const { shoppingCart, setShoppingCart } = cartState;

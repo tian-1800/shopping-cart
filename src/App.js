@@ -4,29 +4,24 @@ import "./App.css";
 import Shop from "./component/shop";
 import Home from "./component/home";
 import StickyCart from "./component/sticky-cart";
-import DisplayCategory from "./component/display-category";
-import DisplayPlant from "./component/display-plant";
+import Item from "./component/item";
 import HeaderShop from "./component/header-shop";
-import items from "./component/data/items";
+import useDataFromAPI from "./component/data/item";
 
 function App() {
+  const [items] = useDataFromAPI();
   const useStateOnSesssionStorage = (storageKey) => {
     const initCart = () => {
-      let cart = [];
-      items.forEach((category) => {
-        const categoryName = category.category;
-        const mapped = category.variant.map((variant) => ({
-          name: variant.name,
-          price: parseInt(variant.price*1000,10),
-          quantity: 0,
-          category: categoryName,
-        }));
-        cart = [...cart, ...mapped];
+      const cart = [];
+      items.forEach((item) => {
+        const element = item;
+        element.quantity = 0;
+        cart.push(element);
       });
       return cart;
     };
     const data = JSON.parse(sessionStorage.getItem(storageKey));
-    const [value, setValue] = useState(data ||initCart());
+    const [value, setValue] = useState(data || initCart());
     useEffect(() => {
       sessionStorage.setItem(storageKey, JSON.stringify(value));
     }, [value]);
@@ -48,15 +43,11 @@ function App() {
         </Route>
 
         <Route exact path="/shop">
-          <Shop />
+          <Shop cart={shoppingCart}/>
         </Route>
 
-        <Route exact path="/shop/:id">
-          <DisplayCategory />
-        </Route>
-
-        <Route exact path="/shop/:id/:variant">
-          <DisplayPlant cartState={{ shoppingCart, setShoppingCart }} />
+        <Route exact path="/shop/:id/">
+          <Item cartState={{ shoppingCart, setShoppingCart }} />
         </Route>
       </Switch>
     </BrowserRouter>

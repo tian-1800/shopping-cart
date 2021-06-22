@@ -1,11 +1,11 @@
 import React from "react";
 import CategoryCard from "./category-card";
-import items from "./data/items";
+import useDataFromAPI from "./data/item";
 
 export default function Shop() {
   const generateCategory = (things) =>
     things.map((item) => (
-      <CategoryCard category={item} />
+      <CategoryCard category={item} key={item.category}/>
     ));
   return (
     <div id="shop">

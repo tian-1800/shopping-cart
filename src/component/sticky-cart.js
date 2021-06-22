@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import CartIcon from "./icon/cart";
 
 export default function StickyCart(props) {
   const { cart } = props;
+  const [cartExpanded, setCardExpanded] = useState(false);
   const renderedCart = cart.map((item) => {
     const { name, price, quantity, category } = item;
     if (quantity === 0) return null;
@@ -14,13 +15,29 @@ export default function StickyCart(props) {
       </div>
     );
   });
-  const totalPrice = cart.reduce((total, item) => total + (item.price*item.quantity),0);
-  const expandCart = () => {};
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  const toggleCartExpand = () => {
+    setCardExpanded(!cartExpanded);
+  };
+  if (!cartExpanded)
+    return (
+      <div id="sticky-cart">
+        <button type="button" onClick={toggleCartExpand}>
+          <CartIcon fontSize={36} />
+        </button>
+        <span>{totalPrice}</span>
+      </div>
+    );
   return (
-    <div id="sticky-cart">
-      <CartIcon fontSize={36} onClick={expandCart} />
-      <span>{totalPrice}</span>
+    <div id="cart-detail">
+      <button type="button" id="close-cart-detail"onClick={toggleCartExpand}>
+        x
+      </button>
       {renderedCart}
+      <button type="button" id="cart-checkout">Checkout</button>
     </div>
   );
 }

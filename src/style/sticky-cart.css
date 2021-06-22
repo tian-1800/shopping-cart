@@ -4,3 +4,31 @@
     width:150px;
     right:0;
 }
+
+#sticky-cart button{
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+#cart-detail {
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(15,15,15,0.95);
+    line-height: 1.5rem;
+}
+#close-cart-detail {
+    float: right;
+}
+#cart-checkout {
+    position: fixed;
+    top: 80vh;
+}
