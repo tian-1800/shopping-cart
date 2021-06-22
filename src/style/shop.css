@@ -1,6 +1,6 @@
 #header-shop {
     height: 100px;
-    width: 99vw;
+    width: 100vw;
     background-color: #111;
     text-align: center;
     line-height: 100px;
@@ -9,21 +9,49 @@
     font-size: 36px;
     font-weight: 400;
 }
+
+#shop {
+    text-align: center;
+}
+#shop-frame {
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
 #shop-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
+    width: max-content;
     overflow-x: hidden;
-    margin: auto;
+    transition: transform 300ms ease-in-out;
+}
+.left-button, .right-button {
+    position: fixed;
+    z-index: 10;
+    background: rgba(5,5,5,0.9);
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
+.left-button {
+    left: 25px; 
+}
+.right-button {
+    right: 25px; 
+}
+.left-button i, .right-button i {
+    font-size: 48px;
 }
 .item-card {
     background-color: rgba(5,5,5,0.9);
     padding: 1rem;
     border-radius: 10px;
-    margin: 1rem;
+    margin-right: 2rem;
     width: 200px;
 }
 .item-card img {

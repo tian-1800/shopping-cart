@@ -14,8 +14,7 @@ export default function Item(props) {
     );
     setItemToDisplay(item);
   }, [shoppingCart]);
-
-  console.log("item to display ",itemToDisplay);
+  
   const addToCart = (amount) => {
     const index = shoppingCart.findIndex(
       (el) => el.title === match.params.item
