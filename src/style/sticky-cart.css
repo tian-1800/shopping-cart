@@ -15,6 +15,7 @@
 #cart-detail {
     box-sizing: border-box;
     position: fixed;
+    z-index: 10;
     width: 100%;
     max-width: 700px;
     height: 100%;

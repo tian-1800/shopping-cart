@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div id="home">
       <h1>Petok-petok Fake Store</h1>
-      <p>A React Dummy Project</p>
+      <p>A React Learning Project</p>
       <Link to ="/shop">Shop</Link>
     </div>
   );

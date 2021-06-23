@@ -12,22 +12,22 @@
 
 #shop {
     text-align: center;
+    background-image: url("../img/dark-bg.jpg");
+    height: 100vh;
 }
 #shop-frame {
     margin: auto;
     width: 100%;
     max-width: 1200px;
-    height: 500px;
+    height: min-content;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 #shop-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: max-content;
-    overflow-x: hidden;
+    width: min-content;
     transition: transform 300ms ease-in-out;
 }
 .left-button, .right-button {
@@ -48,7 +48,7 @@
     font-size: 48px;
 }
 .item-card {
-    background-color: rgba(5,5,5,0.9);
+    background-color: rgba(50,50,50,0.6);
     padding: 1rem;
     border-radius: 10px;
     margin-right: 2rem;

@@ -4,9 +4,10 @@ import CartIcon from "./icon/cart";
 export default function StickyCart(props) {
   const { cart } = props;
   const [cartExpanded, setCardExpanded] = useState(false);
+
   const renderedCart = cart.map((item) => {
     const { title, price, quantity } = item;
-    if (!quantity > 0) return null;
+    // if (!quantity > 0) return null;
     return (
       <div key={title}>
         <p>
@@ -15,8 +16,9 @@ export default function StickyCart(props) {
       </div>
     );
   });
+
   const totalPrice = cart.reduce(
-    (total, item) => total + item.price * item.quantity,
+    (total, item) => total + item.price * (item.quantity),
     0
   );
   const toggleCartExpand = () => {

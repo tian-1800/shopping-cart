@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Shop from "./component/shop";
 import Home from "./component/home";
 import StickyCart from "./component/sticky-cart";
-import Item from "./component/item";
-import HeaderShop from "./component/header-shop";
+import Item from "./component/item-page";
 import useDataFromAPI from "./component/data/fetch-item";
 
 function App() {
-  const [items, isLoaded] = useDataFromAPI();
-  const [shoppingCart, setShoppingCart] = useState([]);
-  useEffect(() => {
-    if (isLoaded) {
-      const initializedItems=items.map(item => {
-        const copiedItem = item;
-        copiedItem.quantity = 0;
-        return copiedItem;
-      })
-      setShoppingCart(initializedItems);
-    }
-  }, [isLoaded]);
-
+  const [shoppingCart, setShoppingCart] = useDataFromAPI();
   return (
     <BrowserRouter>
       <StickyCart cart={shoppingCart} />
-      <Route path="/shop">
-        <HeaderShop />
-      </Route>
       <Switch>
         <Route exact path="/">
           <Home />

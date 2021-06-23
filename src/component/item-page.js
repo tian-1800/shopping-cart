@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
+import HeaderShop from "./header-shop";
 import CartInput from "./cart-input";
 
 export default function Item(props) {
@@ -14,7 +15,7 @@ export default function Item(props) {
     );
     setItemToDisplay(item);
   }, [shoppingCart]);
-  
+
   const addToCart = (amount) => {
     const index = shoppingCart.findIndex(
       (el) => el.title === match.params.item
@@ -26,18 +27,22 @@ export default function Item(props) {
     }
   };
   return (
-    <div className="item-container">
-      <img
-        className="item-img"
-        src={itemToDisplay.image}
-        alt={itemToDisplay.name}
-      />
-      <div className="item-detail">
-        <h3>
-          {itemToDisplay.name} {itemToDisplay.id}
-        </h3>
-        <p>Description: {itemToDisplay.description}</p>
-        <CartInput submit={addToCart} qty={itemToDisplay.quantity} />
+    <div id="item-page">
+      <HeaderShop />
+      <div id="item-container">
+        <img
+          id="item-img"
+          src={itemToDisplay.image}
+          alt={itemToDisplay.title}
+        />
+        <div id="item-detail">
+          <h3 id="item-title">{itemToDisplay.title} </h3>
+          <p id="item-desc-title">Description: </p>
+          <p id="item-description">{itemToDisplay.description}</p>
+          <p>Price: {`$${itemToDisplay.price}`}</p>
+          
+          <CartInput submit={addToCart} qty={itemToDisplay.quantity} />
+        </div>
       </div>
     </div>
   );

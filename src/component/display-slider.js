@@ -7,22 +7,23 @@ export default function DisplaySlider(props) {
   const [distance, setDistance] = useState(0);
   const [translationIndex, setTranslationIndex] = useState(0);
   const [maxTranslationIndex, setMaxTranslationIndex] = useState(0);
-  const distanceEachClick = window.innerWidth * 0.9;
+  const [distanceEachClick, setDistanceEachClick] = useState(0);
   useEffect(() => {
     const frameWidth = document.getElementById(
       `${sectionName}-frame`
-    ).clientWidth;
+    ).offsetWidth;
     const containerWidth = document.getElementById(
       `${sectionName}-container`
-    ).clientWidth;
-    setMaxTranslationIndex(containerWidth / frameWidth);
+    ).offsetWidth;
+    setDistanceEachClick(frameWidth * 0.9);
+    setMaxTranslationIndex(containerWidth / (frameWidth * 0.9));
   }, [children]);
 
   const slideLeft = () => {
     if (translationIndex > 0) {
-      if (translationIndex < 2) {
+      if (translationIndex < 1) {
         setDistance(0);
-        setTranslationIndex(1);
+        setTranslationIndex(0);
       } else {
         setDistance(distance + distanceEachClick);
         setTranslationIndex(translationIndex - 1);
