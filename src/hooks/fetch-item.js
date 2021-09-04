@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function useDataFromAPI() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [isLoaded, setIsLoaded] = useState(false);
   const [isStorageNull, setIsStorageNull] = useState(false);
 
   const useSessionStorage = (key) => {
@@ -34,14 +34,14 @@ export default function useDataFromAPI() {
           return copiedItem;
         });
         setItems(initializedItems);
-        setIsLoaded(true);
+        // setIsLoaded(true);
         console.log("fetched");
       });
   };
 
   useEffect(() => {
     fetchData();
-  }, [isLoaded]);
+  }, []);
 
   return [items, setItems];
 }

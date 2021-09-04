@@ -10,7 +10,7 @@ export default function CartInput(props) {
     setValue(value + 1);
   };
   const handleDecrement = () => {
-    setValue(value - 1);
+    if (value > 0) setValue(value - 1);
   };
   const handleChange = (e) => {
     setValue(parseInt(e.target.value, 10));
@@ -49,7 +49,7 @@ export default function CartInput(props) {
           </button>
         </div>
         <button type="submit" id="submit-button">
-          Add to cart
+          {qty > 0 ? "Update" : "Add to cart"}
         </button>
       </form>
     </div>

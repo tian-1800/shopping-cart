@@ -1,13 +1,28 @@
 #home {
-    background-image: url(../img/home-bg.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
+  background-image: url(../img/home-bg.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
 }
 
-#home>h1 {
-    padding: 10vh;
-    text-transform: uppercase;
+#home > h1 {
+  padding: 10vh;
+  text-transform: uppercase;
+}
+
+#to-shop {
+  border: none;
+  border-radius: 10px;
+  font-size: 2em;
+  padding: 15px 25px;
+  margin: 25px;
+  background-color: #69e;
+  transition: all 0.2s ease-in-out;
+}
+#to-shop:hover {
+  box-shadow: 0 0 20px 10px rgba(100, 100, 150, 0.5);
+  background-color: #246;
+  color: #fff;
 }
