@@ -35,9 +35,10 @@ export default function useDataFromAPI() {
         });
         setItems(initializedItems);
         setIsLoaded(true);
+        console.log("fetched");
       });
   };
-  
+
   useEffect(() => {
     fetchData();
   }, [isLoaded]);

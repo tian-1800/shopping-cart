@@ -12,7 +12,7 @@ function App() {
   const [shoppingCart, setShoppingCart] = useDataFromAPI();
   return (
     <BrowserRouter>
-      <StickyCart cart={shoppingCart} />
+      <StickyCart cart={shoppingCart} setCart={setShoppingCart} />
       <Switch>
         <Route exact path="/">
           <Home />

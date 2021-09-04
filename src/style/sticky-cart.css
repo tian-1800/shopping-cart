@@ -55,7 +55,7 @@
   position: fixed;
   top: 80vh;
 }
-#cart-button-container > * {
+#cart-button-container > button {
   border: none;
   border-radius: 1px;
   transition: all 0.3s ease-in-out;
@@ -67,8 +67,8 @@
   color: #fff;
 }
 #cart-checkout:hover {
-  background-color: #4cc;
-  color: #111;
+  background-color: #111;
+  color: #f55;
   font-weight: bold;
 }
 #close-cart-detail {

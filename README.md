@@ -8,7 +8,7 @@
 
 A React project as required by [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/shopping-cart) curicullum. The purpose is to practice on hooks and router.
 
-No back-end and no checkout implementation
+No back-end and no checkout implementation. User data is saved on the browser's session storage.
 
 ### Usage
 
