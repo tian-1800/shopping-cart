@@ -1,17 +1,31 @@
 #cart-input input {
-    width: 7rem;
-    border: solid 1px;
-    padding: 5px;
+  width: 7rem;
+  border: solid 1px;
+  padding: 5px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-#inc-button #dec-button {
-    border: solid 1px;
+.input-group {
+  display: flex;
+}
+.input-group > button {
+  border: none;
+  border-radius: 0;
+  /* color: aqua; */
+  margin: 0 5px;
+  padding: 0 10px;
+}
+
+#submit-button {
+  margin: 2rem 0;
+  border: none;
+  padding: 10px;
+  border-radius: 0;
 }

@@ -4,7 +4,7 @@ export default function CartInput(props) {
   const { submit, qty } = props;
   const [value, setValue] = useState(0);
   useEffect(() => {
-    setValue(qty||0);
+    setValue(qty || 0);
   }, [qty]);
   const handleIncrement = () => {
     setValue(value + 1);
@@ -23,7 +23,7 @@ export default function CartInput(props) {
     <div id="cart-input">
       <p>Quantity:</p>
       <form id="quantity-form" onSubmit={handleSubmit}>
-        <div>
+        <div className="input-group">
           <button
             type="button"
             id="dec-button"

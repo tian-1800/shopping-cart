@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
+
 import Shop from "./component/shop";
 import Home from "./component/home";
 import StickyCart from "./component/sticky-cart";
 import Item from "./component/item-page";
-import useDataFromAPI from "./component/data/fetch-item";
+import useDataFromAPI from "./hooks/fetch-item";
 
 function App() {
   const [shoppingCart, setShoppingCart] = useDataFromAPI();

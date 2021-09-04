@@ -11,7 +11,13 @@ body {
   background-color: #210;
   color: #ccc;
 }
-
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: #4de;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

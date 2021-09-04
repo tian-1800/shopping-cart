@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch, Link } from "react-router-dom";
 import HeaderShop from "./header-shop";
 import CartInput from "./cart-input";
 
@@ -40,8 +40,15 @@ export default function Item(props) {
           <p id="item-desc-title">Description: </p>
           <p id="item-description">{itemToDisplay.description}</p>
           <p>Price: {`$${itemToDisplay.price}`}</p>
-          
+
           <CartInput submit={addToCart} qty={itemToDisplay.quantity} />
+
+          <Link to={`/shop`}>
+            <button type="button" className="back">
+              <i className="material-icons arrow">reply</i>
+            </button>
+            <span>Go back</span>
+          </Link>
         </div>
       </div>
     </div>

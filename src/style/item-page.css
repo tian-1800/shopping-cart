@@ -17,18 +17,26 @@
   padding: 25px;
 }
 #item-title {
-    font-size: 24;
-    text-align: center;
+  font-size: 24;
+  text-align: center;
 }
 #item-detail {
-    padding: 25px;
-    line-height: 1.5rem;
+  padding: 25px;
+  line-height: 1.5rem;
 }
 #item-desc-title {
-    font-style: italic;
-    padding-top: 2rem;
+  font-style: italic;
+  padding-top: 2rem;
 }
 #item-description {
-    font-weight: 300;
-    text-align: justify;
+  font-weight: 300;
+  text-align: justify;
+}
+
+button.back {
+  border: none;
+  background-color: transparent;
+}
+button.back > i {
+  color: #fff;
 }

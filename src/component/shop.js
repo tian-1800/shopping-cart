@@ -16,15 +16,13 @@ export default function Shop(props) {
       setError(false);
     }
   }, []);
-  console.log(error);
 
   return (
     <div id="shop">
       <HeaderShop />
       <p>Browse by product</p>
-      <h1>{error&&"There is an error occured"}</h1>
+      <h1>{error && "There is an error occured"}</h1>
       <DisplaySlider sectionName="shop">{populateShop(cart)}</DisplaySlider>
-      
     </div>
   );
 }
